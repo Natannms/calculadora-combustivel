@@ -1,0 +1,19 @@
+
+DADOS DO USUARIO
+
+
+KM/LITRO = 7,3
+Etanol Preco = 3,88
+Gasolina Preco = 4,97
+KM/DIARIO 27,8km
+Tempo estimado para KM/DIARIO = 58min
+
+
+FORMULAS
+
+consumo diário = distância percorrida por dia / consumo médio do veículo
+
+gasto diário = consumo diário x preço do litro
+
+
+Crie um sistema capaz de calcular o consumo diário e em seguida calcular o gasto diário de um UBER usando os dados acima e as formulas.
