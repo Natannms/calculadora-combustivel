@@ -1,4 +1,4 @@
-package entities
+package fuel
 
 type Fuel struct {
 	Name  string

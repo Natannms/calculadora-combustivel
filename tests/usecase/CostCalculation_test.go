@@ -1,7 +1,9 @@
 package tests
 
 import (
-	"discovery_language/internal/app/entities"
+	"discovery_language/internal/app/entities/car"
+	"discovery_language/internal/app/entities/fuel"
+	"discovery_language/internal/app/entities/trip"
 	"discovery_language/internal/app/usecases"
 	"errors"
 	"testing"
@@ -21,19 +23,19 @@ func (m *mockFuelPriceRepository) GetPrice(fuelType string) (float64, error) {
 func TestCostCalculationUsecase_CalculateCostByFuelType(t *testing.T) {
 	cc := usecases.NewCostCalculationUsecase(&mockFuelPriceRepository{})
 
-	trip := entities.Trip{
+	trip := trip.Trip{
 		Name:              "Bairro ao lado",
 		TravelledDistance: 27.8,
 		TripType:          "Daily",
 	}
 
-	car := entities.Car{
+	car := car.Car{
 		Name:               "Siena",
 		Model:              "ELX 2010",
 		AverageConsumption: 7.3,
 	}
 
-	fuel := entities.Fuel{
+	fuel := fuel.Fuel{
 		Name:  "Etanol",
 		Price: 4.97,
 	}

@@ -1,4 +1,4 @@
-package entities
+package trip
 
 type Trip struct {
 	Name              string
