@@ -17,12 +17,7 @@ func (cc *CostCalculationUsecase) CalculateCost(tripDistance, fuelConsumption, f
 	return totalFuelCost, nil
 }
 
-func (cc *CostCalculationUsecase) CalculateCostByFuelType(tripDistance, fuelConsumption float64, fuelType string) (float64, error) {
-	fuelPrice, err := cc.fuelPriceRepo.GetPrice(fuelType)
-	if err != nil {
-		return 0, err
-	}
-
+func (cc *CostCalculationUsecase) CalculateCostByFuelType(tripDistance, fuelConsumption float64, fuelPrice float64) (float64, error) {
 	totalFuelCost := fuelPrice * (tripDistance / fuelConsumption)
 	return totalFuelCost, nil
 }
