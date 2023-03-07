@@ -1,18 +1,16 @@
 package usecases
 
-type DailyExpenseRepository interface {
-	CalculateDailyExpense(vehicleID int, fuelPrice float64, distance float64) float64
+type DailyExpenseUsecase struct {
+	fuelPriceRepo FuelPriceRepository
 }
 
-type DailyExpenseUseCase struct {
-	dailyExpenseRepo DailyExpenseRepository
+func NewDailyExpenseUsecase(fuelPriceRepo FuelPriceRepository) *DailyExpenseUsecase {
+	return &DailyExpenseUsecase{fuelPriceRepo: fuelPriceRepo}
 }
 
-func NewDailyExpenseCalculation(dailyExpenseRepo DailyExpenseRepository) *DailyExpenseUseCase {
-	return &DailyExpenseUseCase{dailyExpenseRepo: dailyExpenseRepo}
-}
+func (uc *DailyExpenseUsecase) CalculateDailyExpense(dailyIntake float64, fuelPrice float64) (float64, error) {
+	// Calcula o gasto diário
+	dailyExpense := fuelPrice * dailyIntake
 
-func (de *DailyExpenseUseCase) DailyExpense(dailyIntake float64, fuelPrice float64) float64 {
-	result := dailyIntake * fuelPrice
-	return result
+	return dailyExpense, nil
 }
