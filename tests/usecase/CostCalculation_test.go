@@ -40,9 +40,9 @@ func TestCostCalculationUsecase_CalculateCostByFuelType(t *testing.T) {
 		Price: 4.97,
 	}
 
-	expectedCost := 4.97 * (trip.TravelledDistance / car.AverageConsumption)
+	expectedCost := 4.97 * (trip.GetTravelledDistance() / car.GetAverageConsumption())
 
-	cost, err := cc.CalculateCostByFuelType(trip.TravelledDistance, car.AverageConsumption, fuel.Price)
+	cost, err := cc.CalculateCostByFuelType(trip.GetTravelledDistance(), car.AverageConsumption, fuel.GetPrice())
 	if err != nil {
 		t.Errorf("Error calculating cost %v", err)
 	}

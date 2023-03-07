@@ -5,3 +5,7 @@ type Car struct {
 	Model              string
 	AverageConsumption float64
 }
+
+func (c Car) GetAverageConsumption() float64 {
+	return c.AverageConsumption
+}

@@ -5,3 +5,7 @@ type Trip struct {
 	TravelledDistance float64
 	TripType          string
 }
+
+func (t Trip) GetTravelledDistance() float64 {
+	return t.TravelledDistance
+}
