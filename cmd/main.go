@@ -1,10 +1,12 @@
 package main
 
-import "discovery_language/internal/app/usecases"
+import "fmt"
 
 func main() {
 	travelledDistance := 27.8
 	averageConsumption := 7.3
 
-	usecases.DailyIntake(travelledDistance, averageConsumption)
+	fmt.Println(travelledDistance)
+	fmt.Println(averageConsumption)
+	// usecases.DailyIntake(travelledDistance, averageConsumption)
 }

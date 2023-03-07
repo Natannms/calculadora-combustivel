@@ -1,23 +1,18 @@
 package usecases
 
-// type DailyExpenseUseCase interface {
-// 	DailyExpense(dailyIntake float64, fuelPrice float64) float64
-// }
+type DailyExpenseRepository interface {
+	CalculateDailyExpense(vehicleID int, fuelPrice float64, distance float64) float64
+}
 
-// type DailyExpenseRepository interface {
-// 	GenerateDailyExpense(dailyIntake float64, fuelPrice float64) float64
-// }
+type DailyExpenseUseCase struct {
+	dailyExpenseRepo DailyExpenseRepository
+}
 
-// type DailyExpenseInteractor struct {
-// 	DailyExpenseRepository DailyExpenseRepository
-// }
+func NewDailyExpenseCalculation(dailyExpenseRepo DailyExpenseRepository) *DailyExpenseUseCase {
+	return &DailyExpenseUseCase{dailyExpenseRepo: dailyExpenseRepo}
+}
 
-// func (i *DailyExpenseInteractor) DailyExpense(dailyIntake float64, fuelPrice float64) float64 {
-
-// 	return 1
-// }
-
-func DailyExpense(dailyIntake float64, fuelPrice float64) float64 {
+func (de *DailyExpenseUseCase) DailyExpense(dailyIntake float64, fuelPrice float64) float64 {
 	result := dailyIntake * fuelPrice
 	return result
 }
